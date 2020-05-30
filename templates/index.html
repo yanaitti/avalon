@@ -52,10 +52,13 @@
         Who do you appoint?:<br/>
         <select name='candidatelist[]' id='candidatelist' multiple></select><br/>
         <button id="election">選出(election)</button><br/>
+        上記から遠征に出すメンバーを選択して、「選出」ボタンを押してください。<br/>
         <br/>
         <button id="expedition">遠征判定(expedition)</button><br/>
+        全員が判定結果を入力したことを確認して「遠征判定」ボタンを押してください。<br/>
         <br/>
         <button id="result">遠征結果(result)</button><br/>
+        遠征に行ったメンバーが遠征結果を入力したことを確認して「遠征結果」ボタンを押してください。<br/>
         <hr/>
       </div>
       <div id='sec4' style='display:none'>
@@ -69,10 +72,6 @@
         Will you choose which one?:<br/>
         <button id="successed">任務成功(complete)</button><br/>
         <button id="failed">任務失敗(failed)</button><br/>
-        <hr/>
-      </div>
-      <div id='sec6' style='display:none'>
-        <button id="result">判定結果(result)</button><br/>
         <hr/>
       </div>
       <br/>
@@ -300,7 +299,6 @@
               $('#failed').attr('disabled', false);
               $('#sec4').css('display', 'none');
               $('#sec5').css('display', 'none');
-              $('#sec6').css('display', 'none');
 
               switch(data.players[playerPos].role){
                 case 0:
