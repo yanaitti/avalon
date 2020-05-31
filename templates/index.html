@@ -371,6 +371,14 @@
               }
               break;
             case 'end':
+              for(var rIdx in data.results){
+                $('#turn' + rIdx).text('●');
+                if(data.results[rIdx] == 'successed'){
+                  $('#turn' + rIdx).css("color","blue");
+                }else{
+                  $('#turn' + rIdx).css("color","red");
+                }
+              }
               $('#sec6').show();
               break;
           }
