@@ -212,7 +212,7 @@ def successedorfailed(gameid):
         # failed
         game['results'].append('failed')
 
-    if len(game['results']) == 1:
+    if len(game['results']) == 5:
         game['status'] = 'end'
         cache.set(gameid, game)
         return 'end'
