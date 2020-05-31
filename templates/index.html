@@ -45,7 +45,9 @@
         <br>
         Your role:<span id='role'></span><br>
         <br>
-        <span id='evils'></span><br/>
+        <div id='sec6' style='display:none'>
+          <span id='evils'></span><br/>
+        </div>
         <hr/>
       </div>
       <div id='sec3' style='display:none'>
@@ -303,28 +305,23 @@
               switch(data.players[playerPos].role){
                 case 0:
                   $('#role').text('merlin');
-                  $('#evils').text('Servants of Mordred members:');
-                  for(var mIdx in data.mordreds){
-                    $('#evils').append('<br/>' + data.mordreds[mIdx].nickname);
-                  }
+                  $('#sec6').show();
                   break;
                 case 1:
                   $('#role').text('assasin');
-                  $('#evils').text('Servants of Mordred members:');
-                  for(var mIdx in data.mordreds){
-                    $('#evils').append('<br/>' + data.mordreds[mIdx].nickname);
-                  }
+                  $('#sec6').show();
                   break;
                 case 2:
                   $('#role').text('servants of Arthur');
                   break;
                 case 3:
                   $('#role').text('servants of Mordred');
-                  $('#evils').text('Servants of Mordred members:');
-                  for(var mIdx in data.mordreds){
-                    $('#evils').append('<br/>' + data.mordreds[mIdx].nickname);
-                  }
+                  $('#sec6').show();
                   break;
+              }
+              $('#evils').text('Servants of Mordred members:');
+              for(var mIdx in data.mordreds){
+                $('#evils').append('<br/>' + data.mordreds[mIdx].nickname);
               }
 
               if(jQuery.trim($('#candidatelist').text()) == ''){
@@ -372,7 +369,9 @@
                   $('#sec5').show();
                 }
               }
-
+              break;
+            case 'end':
+              $('#sec6').show();
               break;
           }
         })

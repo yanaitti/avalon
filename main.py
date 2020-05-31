@@ -204,8 +204,6 @@ def expedition_phase(gameid):
 def successedorfailed(gameid):
     game = cache.get(gameid)
 
-    game['status'] = 'started'
-
     c = collections.Counter(game['votelist'])
     if c['0'] == len(game['selectedcandidates']):
         # successed
@@ -214,7 +212,13 @@ def successedorfailed(gameid):
         # failed
         game['results'].append('failed')
 
+    if len(game['results']) == 1:
+        game['status'] = 'end'
+        cache.set(gameid, game)
+        return 'end'
+
     game['routeidx'] = (game['routeidx'] + 1) % len(game['players'])
+    game['status'] = 'started'
 
     cache.set(gameid, game)
     return 'ok'
