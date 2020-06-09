@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
+    このゲームは５～１０人用となっています。<br/>
     <div id='app2'>
       <input id="cName_inp" placeholder="ニックネームを入力してください"><br/>
       <br/>
@@ -97,6 +98,10 @@
           }
         )
         .done(function(data) {
+          $('#cName_inp').prop('readonly', true);
+          $('#gId_inp').prop('readonly', true);
+          $('#joinGame').prop('disabled', true);
+          $('#createGame').prop('disabled', true);
           $('#gId').text(data);
           $('#cId').text(data);
           $('#cName').text($('#cName_inp').val());
@@ -120,6 +125,10 @@
           }
         )
         .done(function(data) {
+          $('#cName_inp').prop('readonly', true);
+          $('#gId_inp').prop('readonly', true);
+          $('#joinGame').prop('disabled', true);
+          $('#createGame').prop('disabled', true);
           _tmp = data.split(' ,');
           $('#cId').text(_tmp[0]);
           $('#cName').text(_tmp[1]);
