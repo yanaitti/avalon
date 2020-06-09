@@ -368,6 +368,9 @@
                 if(cId == data.selectedcandidates[cIdx].playerid){
                   $('#sec5').show();
                 }
+                if(data.players[playerPos].role % 2 == 0){
+                  $('#failed').attr('disabled', true);
+                }
               }
               break;
             case 'end':
