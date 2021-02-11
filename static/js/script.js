@@ -82,7 +82,11 @@ $(function() {
       }
     )
     .done(function(data) {
-      $('#election').attr('disabled', true);
+      if(data == 'ok'){
+        $('#election').attr('disabled', true);
+      }else{
+        $('#message').text("エラーが発生しました");
+      }
     })
     .fail(function() {
       $('#message').text('エラーが発生しました');
@@ -222,6 +226,7 @@ var status_check = function(gId, cId){
         case 'waiting':
           break;
         case 'started':
+          $("#stage").text("<Choose>");
           $('#evils').empty();
           $('#approval').attr('disabled', false);
           $('#reject').attr('disabled', false);
@@ -276,10 +281,11 @@ var status_check = function(gId, cId){
           // $('#turn' + 1).text('●');
           if(data.results.length > 0){
             for(var rIdx in data.results){
-              $('#turn' + rIdx).text('●');
               if(data.results[rIdx] == 'successed'){
+                $('#turn' + rIdx).text('●Successed');
                 $('#turn' + rIdx).css("color","blue");
               }else{
+                $('#turn' + rIdx).text('●Failed');
                 $('#turn' + rIdx).css("color","red");
               }
             }
@@ -292,6 +298,7 @@ var status_check = function(gId, cId){
           break;
 
         case 'candidate':
+          $("#stage").text("<Choose> -> <Election>");
           $('#candidatelists').empty();
           for(var cIdx in data.selectedcandidates){
             $('#candidatelists').append(data.selectedcandidates[cIdx].nickname + '<br/>');
@@ -301,6 +308,7 @@ var status_check = function(gId, cId){
           break;
 
         case 'expedition':
+          $("#stage").text("<Election> -> <Expedition> -> <Expedition>");
           for(var cIdx in data.selectedcandidates){
             if(cId == data.selectedcandidates[cIdx].playerid){
               $('#sec5').show();
@@ -312,10 +320,11 @@ var status_check = function(gId, cId){
           break;
         case 'end':
           for(var rIdx in data.results){
-            $('#turn' + rIdx).text('●');
             if(data.results[rIdx] == 'successed'){
+              $('#turn' + rIdx).text('●Successed');
               $('#turn' + rIdx).css("color","blue");
             }else{
+              $('#turn' + rIdx).text('●Failed');
               $('#turn' + rIdx).css("color","red");
             }
           }

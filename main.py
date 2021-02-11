@@ -1,4 +1,5 @@
-from flask import Flask, Response, render_template, url_for
+from flask import Flask, Response, render_template, url_for, request
+from flask_babel import Babel, gettext
 from flask_caching import Cache
 import uuid
 import random
@@ -8,6 +9,14 @@ import os
 import copy
 
 app = Flask(__name__)
+babel = Babel(app) # Babelオブジェクトを作っておく
+
+
+@babel.localeselector
+def get_locale():
+    # この場合はブラウザのAccept Languagesを見るようになっている。
+    return request.accept_languages.best_match(['ja', 'ja_JP', 'en'])
+
 
 @app.context_processor
 def override_url_for():
@@ -165,6 +174,11 @@ def start_game(gameid):
 @app.route('/<gameid>/choice/<candidatelist>')
 def choice_phase(gameid, candidatelist):
     game = cache.get(gameid)
+
+    print(len(candidatelist.split(',')), game['gameboard'][len(game['results'])])
+
+    if len(candidatelist.split(',')) != game['gameboard'][len(game['results'])]:
+        return 'ng'
 
     game['status'] = 'candidate'
 

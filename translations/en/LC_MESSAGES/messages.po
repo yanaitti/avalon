@@ -1,0 +1,75 @@
+# English translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-02-11 17:27+0900\n"
+"PO-Revision-Date: 2021-02-11 17:29+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: templates/index.html:62
+msgid "txt_explain1"
+msgstr "Who will you choose for expedition?"
+
+#: templates/index.html:64
+msgid "txt_explain2"
+msgstr "※Hold down the Ctrl key and select multiple items."
+
+#: templates/index.html:65
+msgid "btn_election"
+msgstr "Election"
+
+#: templates/index.html:66
+msgid "txt_explain3"
+msgstr "You choose the members to go on the expedition. and then push 'Election'."
+
+#: templates/index.html:68
+msgid "btn_expedition"
+msgstr "Judgement for Expedition"
+
+#: templates/index.html:69
+msgid "txt_explain4"
+msgstr "You should confirm all of members was polled. and then push 'Judgement for Expedition' button."
+
+#: templates/index.html:71
+msgid "btn_result"
+msgstr "Result of Expedition"
+
+#: templates/index.html:72
+msgid "txt_explain5"
+msgstr "You should confirm all of expedition members was set the result. and then push 'Result of Expedition' button."
+
+#: templates/index.html:76
+msgid "txt_explain6"
+msgstr "Will you approve these members for expedition?:"
+
+#: templates/index.html:78
+msgid "btn_approval"
+msgstr "Approval"
+
+#: templates/index.html:79
+msgid "btn_reject"
+msgstr "Reject"
+
+#: templates/index.html:83
+msgid "txt_explain7"
+msgstr "Will you choose which one?(Avalon team choose 'Success' only)"
+
+#: templates/index.html:84
+msgid "btn_success"
+msgstr "Mission Success"
+
+#: templates/index.html:85
+msgid "btn_failed"
+msgstr "Mission Failed"

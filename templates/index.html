@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>レジスタンス：アヴァロン</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
@@ -46,6 +48,7 @@
             <td><span id='turn4'></span></td>
           </tr>
         </table><br>
+        <b>Stage: <div id='stage'></div></b>
         <br>
         Your role:<span id='role'></span><br>
         <br>
@@ -54,35 +57,35 @@
         </div>
         <hr/>
       </div>
+      <span id='message'></span><br/>
       <div id='sec3' style='display:none'>
-        Who do you appoint?:<br/>
+        {{ gettext('txt_explain1') }}<br/>
         <select name='candidatelist[]' id='candidatelist' multiple></select><br/>
-        <b>※複数選択するとき、Ctrlキーを押しながら複数選択してください。</b><br/>
-        <button id="election">選出(election)</button><br/>
-        上記から遠征に出すメンバーを選択して、「選出」ボタンを押してください。<br/>
+        <b>{{ gettext('txt_explain2') }}</b><br/>
+        <button id="election">{{ gettext('btn_election') }}</button><br/>
+        {{ gettext('txt_explain3') }}<br/>
         <br/>
-        <button id="expedition">遠征判定(expedition)</button><br/>
-        全員が判定結果を入力したことを確認して「遠征判定」ボタンを押してください。<br/>
+        <button id="expedition">{{ gettext('btn_expedition') }}</button><br/>
+        {{ gettext('txt_explain4') }}<br/>
         <br/>
-        <button id="result">遠征結果(result)</button><br/>
-        遠征に行ったメンバーが遠征結果を入力したことを確認して「遠征結果」ボタンを押してください。<br/>
+        <button id="result">{{ gettext('btn_result') }}</button><br/>
+        {{ gettext('txt_explain5') }}<br/>
         <hr/>
       </div>
       <div id='sec4' style='display:none'>
-        Will you approve these members for expedition?:<br/>
+        {{ gettext('txt_explain6') }}<br/>
         <span id='candidatelists'></span><br/>
-        <button id="approval">承認(approval)</button><br/>
-        <button id="reject">却下(reject)</button><br/>
+        <button id="approval">{{ gettext('btn_approval') }}</button><br/>
+        <button id="reject">{{ gettext('btn_reject') }}</button><br/>
         <hr/>
       </div>
       <div id='sec5' style='display:none'>
-        Will you choose which one?:<br/>
-        <button id="successed">任務成功(complete)</button><br/>
-        <button id="failed">任務失敗(failed)</button><br/>
+        {{ gettext('txt_explain7') }}<br/>
+        <button id="successed">{{ gettext('btn_success') }}</button><br/>
+        <button id="failed">{{ gettext('btn_failed') }}</button><br/>
         <hr/>
       </div>
       <br/>
-      <span id='message'></span><br/>
     </div>
   </body>
 </html>

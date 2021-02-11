@@ -1,0 +1,76 @@
+# Japanese translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-02-11 17:27+0900\n"
+"PO-Revision-Date: 2021-02-11 17:29+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: templates/index.html:62
+msgid "txt_explain1"
+msgstr "誰を遠征に行かせますか?"
+
+#: templates/index.html:64
+msgid "txt_explain2"
+msgstr "※Ctrlキーを押しながら複数選択してください。"
+
+#: templates/index.html:65
+msgid "btn_election"
+msgstr "選出"
+
+#: templates/index.html:66
+msgid "txt_explain3"
+msgstr "上記から遠征に出すメンバーを選択して、「選出」ボタンを押してください。"
+
+#: templates/index.html:68
+msgid "btn_expedition"
+msgstr "遠征判定"
+
+#: templates/index.html:69
+msgid "txt_explain4"
+msgstr "全員が判定結果を入力したことを確認して「遠征判定」ボタンを押してください。"
+
+#: templates/index.html:71
+msgid "btn_result"
+msgstr "遠征結果(result)"
+
+#: templates/index.html:72
+msgid "txt_explain5"
+msgstr "遠征に行ったメンバーが遠征結果を入力したことを確認して「遠征結果」ボタンを押してください。"
+
+#: templates/index.html:76
+msgid "txt_explain6"
+msgstr "これらのメンバーの遠征を承認しますか?"
+
+#: templates/index.html:78
+msgid "btn_approval"
+msgstr "承認"
+
+#: templates/index.html:79
+msgid "btn_reject"
+msgstr "却下"
+
+#: templates/index.html:83
+msgid "txt_explain7"
+msgstr "どちらの任務結果を選びますか？(Avalonは成功しか選べません)"
+
+#: templates/index.html:84
+msgid "btn_success"
+msgstr "任務成功"
+
+#: templates/index.html:85
+msgid "btn_failed"
+msgstr "任務失敗"
+
