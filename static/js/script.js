@@ -5,10 +5,20 @@ $(function() {
   var gId = '';
   var cId = '';
 
+  $('#clickCopy').click(function(){
+    var text = $('#uriWgId').val();
+    var clipboard = $('<textarea></textarea>');
+    clipboard.text(text);
+    $('body').append(clipboard);
+    clipboard.select();
+    document.execCommand('copy');
+    clipboard.remove();
+  });
+
   // Create Game
   $('#createGame').click(function() {
     $('#message').empty();
-    $.ajax('create' + '/' + $('#cName_inp').val(),
+    $.ajax('/create' + '/' + $('#cName_inp').val(),
       {
         type: 'get',
       }
@@ -22,6 +32,7 @@ $(function() {
       $('#cId').text(data);
       $('#cName').text($('#cName_inp').val());
       $('#gStatus').text('waiting');
+      $('#uriWgId').val(location.href + data + '/join');
       gId = data;
       cId = data;
       $('#sec1').show();
@@ -35,7 +46,7 @@ $(function() {
   // Join Game
   $('#joinGame').click(function() {
     $('#message').empty();
-    $.ajax($('#gId_inp').val() + '/join/' + $('#cName_inp').val(),
+    $.ajax('/' + $('#gId_inp').val() + '/join/' + $('#cName_inp').val(),
       {
         type: 'get',
       }
@@ -61,7 +72,7 @@ $(function() {
   // Start Game
   $('#startGame').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/start',
+    $.ajax('/' + gId + '/start',
       {
         type: 'get',
       }
@@ -76,7 +87,7 @@ $(function() {
   // election
   $('#election').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/choice/' + $('#candidatelist').val(),
+    $.ajax('/' + gId + '/choice/' + $('#candidatelist').val(),
       {
         type: 'get',
       }
@@ -96,7 +107,7 @@ $(function() {
   // expedition
   $('#expedition').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/expedition',
+    $.ajax('/' + gId + '/expedition',
       {
         type: 'get',
       }
@@ -115,7 +126,7 @@ $(function() {
   // approval
   $('#approval').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/vote/0',
+    $.ajax('/' + gId + '/vote/0',
       {
         type: 'get',
       }
@@ -132,7 +143,7 @@ $(function() {
   // reject
   $('#reject').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/vote/1',
+    $.ajax('/' + gId + '/vote/1',
       {
         type: 'get',
       }
@@ -149,7 +160,7 @@ $(function() {
   // successed
   $('#successed').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/vote/0',
+    $.ajax('/' + gId + '/vote/0',
       {
         type: 'get',
       }
@@ -166,7 +177,7 @@ $(function() {
   // failed
   $('#failed').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/vote/1',
+    $.ajax('/' + gId + '/vote/1',
       {
         type: 'get',
       }
@@ -183,7 +194,7 @@ $(function() {
   // result
   $('#result').click(function() {
     $('#message').empty();
-    $.ajax(gId + '/successedorfailed',
+    $.ajax('/' + gId + '/successedorfailed',
       {
         type: 'get',
       }
@@ -203,7 +214,7 @@ var status_check = function(gId, cId){
   setTimeout(function(){
     $('#message').empty();
     // all status
-    $.getJSON(gId + '/status',
+    $.getJSON('/' + gId + '/status',
       {
         type: 'get',
       }

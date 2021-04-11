@@ -7,6 +7,7 @@ import collections
 import json
 import os
 import copy
+import qrcode
 
 app = Flask(__name__)
 babel = Babel(app) # Babelオブジェクトを作っておく
@@ -77,6 +78,10 @@ def homepage():
     return render_template('index.html')
 
 
+@app.route('/qr/<gameid>')
+def create_qr(gameid):
+    img = qrcode.make(request.url+gameid)
+
 # create the game group
 @app.route('/create')
 @app.route('/create/<nickname>')
@@ -107,8 +112,13 @@ def waiting_game(gameid):
     return 'reset game status'
 
 
-# join the game
 @app.route('/<gameid>/join')
+def invited_join_game(gameid):
+    print('gameid:' + gameid)
+    return render_template('index.html', gameid=gameid)
+
+
+# join the game
 @app.route('/<gameid>/join/<nickname>')
 def join_game(gameid, nickname=''):
     game = cache.get(gameid)
